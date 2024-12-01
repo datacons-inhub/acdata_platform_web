@@ -13,8 +13,8 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ toggleTheme, theme }) => {  // Definir el tipo del componente
   
   const navigate = useNavigate(); // Definimos useNavigate para redirigir
-  const handleSignup = () => {
-    navigate('/cpanel');
+  const handleCPanel = () => {
+    navigate('/client-cpanel');
   };
   const handleLogin = () => {
     navigate('/signup');
@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, theme }) => {  // Definir 
         <Link to="/about_us">Nosotros</Link>
       </NavMenu>
       <ButtonGroup>
-        <button className="cta-btn" onClick={handleSignup} >Demo</button>
+        <button className="cta-btn" onClick={handleCPanel} >Demo</button>
         <button className="cta-btn secondary" onClick={handleLogin} >Login free</button>
         <button onClick={toggleTheme}>
           {theme === 'light' ? <FaMoon size={20} /> : <FaSun size={20} />}

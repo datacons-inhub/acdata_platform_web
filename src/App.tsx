@@ -6,6 +6,7 @@ import { GlobalStyles } from './styles/GlobalStyles';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Body from './components/Body/Body';
+//import { AuthProvider } from './context/AuthContext';
 import ControlPanel from './components/modules/cpanel/ControlPanel';
 import SignUpModal from './components/modules/account/SignUpModal';
 
@@ -36,11 +37,14 @@ const App = () => {
 
         {/* Panel del Cliente */}
         <Route
-          path="/cpanel"
+          path="/client-cpanel"
           element={
             <ThemeProvider theme={mainTheme === 'light' ? mainLightTheme : mainDarkTheme}>
               <GlobalStyles />
-              <ControlPanel toggleTheme={toggleMainTheme} theme={mainTheme} />
+
+                <ControlPanel toggleTheme={toggleMainTheme} theme={mainTheme} />
+
+              
             </ThemeProvider>
           }
         />
