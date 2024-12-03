@@ -7,7 +7,9 @@ interface CPBodyProps {
   
   const CPBody = ({ children }: CPBodyProps) => {
     return (
-    <BodyWrapper>
+
+
+    <BodyWrapper style={{ flex: 1 }}>
       {children}
     </BodyWrapper>
   );

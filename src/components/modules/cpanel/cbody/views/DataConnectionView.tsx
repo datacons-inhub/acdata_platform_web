@@ -17,8 +17,8 @@ const DataConnectionView: React.FC = () => {
                         <div className="details">
                             <h3>{source.name}</h3>
                             <div className="actions">
-                                <IntegrationButton variant="read">Read</IntegrationButton>
-                                <IntegrationButton variant="write">Write</IntegrationButton>
+                                <IntegrationButton variant="read">Upload</IntegrationButton>
+                                
                             </div>
                         </div>
                     </IntegrationCard>
@@ -31,12 +31,8 @@ const DataConnectionView: React.FC = () => {
 
 
 const dataSources = [
-    { name: 'CSV', icon: imgFirebase },
+    { name: 'CSV / Json ', icon: imgFirebase },
     //{ name: 'Firebase', icon: 'path/to/firebase-icon.png' },
-    { name: 'Firebase', icon: imgFirebase },
-    { name: 'Firebase', icon: imgFirebase },
-    { name: 'Firebase', icon: imgFirebase },
-    { name: 'Firebase', icon: imgFirebase },
     { name: 'Firebase', icon: imgFirebase },
     { name: 'Firebase', icon: imgFirebase },
     { name: 'Firebase', icon: imgFirebase },

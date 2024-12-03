@@ -1,5 +1,6 @@
 // src/utils/logger.ts
 import log from 'loglevel';
+//import winston from 'winston';
 
 log.setLevel('info');
 log.setLevel('debug');
@@ -13,3 +14,17 @@ const logger = {
 };
 
 export default logger;
+/*
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.printf(({ level, message, timestamp }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
+  ),
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
+  ],
+});
+
+export default logger;*/

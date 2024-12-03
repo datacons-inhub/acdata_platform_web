@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme as mainLightTheme, darkTheme as mainDarkTheme } from './styles/theme';  // Tema de la página principal
 import { GlobalStyles } from './styles/GlobalStyles';
+import { AuthProvider } from './context/AuthContext';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Body from './components/Body/Body';
@@ -41,8 +42,10 @@ const App = () => {
           element={
             <ThemeProvider theme={mainTheme === 'light' ? mainLightTheme : mainDarkTheme}>
               <GlobalStyles />
-
+              <AuthProvider>
                 <ControlPanel toggleTheme={toggleMainTheme} theme={mainTheme} />
+              </AuthProvider>
+                
 
               
             </ThemeProvider>
