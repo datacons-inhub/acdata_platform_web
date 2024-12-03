@@ -5,9 +5,10 @@ import CPSidebar from './csidebar/csidebar';
 import { syncUser } from '../../../services/syncService';
 import { useAuth } from '../../../context/AuthContext';
 import { DashboardWrapper, MainContent } from './ControlPanel.styles';
+
 //Sidebar options
 import DashboardView from './cbody/views/DashboardView';
-import DataConnectionView from './cbody/views/DataConnectionView';
+import DataConnectionView from './cbody/views/data/DataConnectionView';
 import AutomationView from './cbody/views/AutomationView'; 
 import ProjectsView from './cbody/views/ProjectsView';
 import AccountView from './cbody/views/Account';

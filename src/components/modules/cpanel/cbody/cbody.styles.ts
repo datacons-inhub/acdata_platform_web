@@ -6,4 +6,5 @@ export const BodyWrapper = styled.div`
   background-color: ${({ theme }) => theme.bodyBackground};
   color: ${({ theme }) => theme.bodyText};
   min-height: calc(80vh - 80px); /* Ajusta la altura según el tamaño del header */
+  
 `;
