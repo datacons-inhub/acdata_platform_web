@@ -14,7 +14,7 @@ export const MainContent = styled.div`
   background-color: ${({ theme }) => theme.bodyBackground};
   color: ${({ theme }) => theme.text};
   overflow-y: auto;
-
+  width: 100%; /* Asegura que ocupe el 100% del espacio disponible */
 `;
 
 

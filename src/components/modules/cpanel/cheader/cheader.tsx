@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaSun, FaMoon, FaSearch, FaBell, FaCog, FaRobot, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 import { HeaderWrapper, SearchBar, QuickActions, AccountButton, AccountDropdown, MenuButton, LogoText } from './cheader.styles';
+import logger from '../../../../utils/logger';
+import { syncUser } from '../../../../services/syncService';
+import { useAuth } from '../../../../context/AuthContext';
 
 interface ClientHeaderProps {
   toggleTheme: () => void;
@@ -14,6 +17,36 @@ const ClientHeader: React.FC<ClientHeaderProps> = ({ toggleTheme, theme, toggleM
   const toggleAccountMenu = () => {
     setAccountMenuOpen(!isAccountMenuOpen);
   };
+  const { user, isAuthenticated, login: authLogin } = useAuth();
+  const [syncMessage, setSyncMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const authenticateAndSync = async () => {
+      try {
+        console.log('[Control Panel] isAuthenticated', isAuthenticated);
+        if (!isAuthenticated) {
+          await authLogin(); // Llama al servicio de autenticación solo si no está autenticado
+        }
+        if (user && user.user_id) {
+          logger.info(`Sincronizando usuario: ${isAuthenticated}`);
+          const response = await syncUser(user.user_id);
+          console.log('[Control Panel]', response);
+          if (response.success) {
+            logger.info(`Usuario sincronizado: ${response.message}`);
+            setSyncMessage(`${response.message}`);
+          } else {
+            logger.error(`Error en sincronización: ${response.error.message}`);
+            setSyncMessage(`Error en sincronización: ${response.error.message}`);
+          }
+        }
+      } catch (error: any) {
+        logger.error(`Error en la autenticación o sincronización: ${error.response?.data?.message || error.message}`);
+        setSyncMessage(`Error en la autenticación o sincronización: ${error.response?.data?.message || error.message}`);
+      }
+    };
+
+    authenticateAndSync();
+  }, [user]);
 
   return (
     <HeaderWrapper>
@@ -21,8 +54,8 @@ const ClientHeader: React.FC<ClientHeaderProps> = ({ toggleTheme, theme, toggleM
       <MenuButton onClick={toggleMenu} aria-label="Abrir menú">
         <span className="menu-icon">&#9776;</span>
       </MenuButton>
-      <LogoText>InHub</LogoText>
-
+      <LogoText>InHub | </LogoText>
+      {syncMessage && <div>{syncMessage}</div>}
 
       {/* Barra de Búsqueda */}
       <SearchBar>

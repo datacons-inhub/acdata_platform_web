@@ -1,9 +1,9 @@
 // acMe - 261024
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CPHeader from './cheader/cheader';
 import CPSidebar from './csidebar/csidebar';
-import { syncUser } from '../../../services/syncService';
-import { useAuth } from '../../../context/AuthContext';
+//import { syncUser } from '../../../services/syncService';
+//import { useAuth } from '../../../context/AuthContext';
 import { DashboardWrapper, MainContent } from './ControlPanel.styles';
 
 //Sidebar options
@@ -13,7 +13,7 @@ import AutomationView from './cbody/views/AutomationView';
 import ProjectsView from './cbody/views/ProjectsView';
 import AccountView from './cbody/views/Account';
 import PresentationView from './cbody/views/PresentationView';
-import logger from '../../../utils/logger';
+//import logger from '../../../utils/logger';
 
 interface CPanelProps {
   toggleTheme: () => void;
@@ -21,15 +21,15 @@ interface CPanelProps {
 }
 
 const CPanel: React.FC<CPanelProps> = ({ toggleTheme, theme }) => {
-  const { user, isAuthenticated, login: authLogin } = useAuth();
+  //const { user, isAuthenticated, login: authLogin } = useAuth();
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState('dashboard');
-  const [syncMessage, setSyncMessage] = useState<string | null>(null);
+ // const [syncMessage, setSyncMessage] = useState<string | null>(null);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-
+/*
   useEffect(() => {
     const authenticateAndSync = async () => {
       try {
@@ -57,7 +57,7 @@ const CPanel: React.FC<CPanelProps> = ({ toggleTheme, theme }) => {
 
     authenticateAndSync();
   }, [user]);
-
+*/
 
   const renderView = () => {
       switch (selectedMenu) {
@@ -86,8 +86,6 @@ const CPanel: React.FC<CPanelProps> = ({ toggleTheme, theme }) => {
       <DashboardWrapper>
         <CPSidebar menuOpen={menuOpen} setSelectedMenu={setSelectedMenu} />
         <MainContent>
-        {syncMessage && <div>{syncMessage}</div>}
-
           {renderView()}
         </MainContent>
       </DashboardWrapper>

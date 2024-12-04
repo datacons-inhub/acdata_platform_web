@@ -1,10 +1,10 @@
 import axios from 'axios';
 import logger from '../utils/logger';
-import { getToken } from './authService';
+//import { getToken } from './authService';
 import apiClient from './apiClient';
 
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL|| 'http://localhost:8000';
+//const API_BASE_URL = import.meta.env.VITE_API_BASE_URL|| 'http://localhost:8000';
 
 interface SyncUserResponse {
   success: boolean;
@@ -40,7 +40,7 @@ export const syncUser = async (user_id: number): Promise<SyncUserResponse | Erro
     }
 
     logger.info(`[syncUser] Starting sync for user ${user_id}`);
-    console.log(`/api/v1/sync_user/{user_id}`);
+    console.log(`/api/v1/sync_user/${user_id}`);
     const response = await apiClient.get<SyncUserResponse>(`/api/v1/sync_user/${user_id}`, {
       /*headers: {
         Authorization: `Bearer ${token}`,

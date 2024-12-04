@@ -1,0 +1,41 @@
+/* DataConnectionView.css */
+.data-connection-view {
+    padding: 20px;
+  }
+  
+  .data-connection-view h2 {
+    color: #333; /* Ajustar según la paleta de colores */
+    margin-bottom: 20px;
+  }
+  
+  .connection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .connection-card {
+    background-color: #fff; /* Fondo de las tarjetas */
+    border: 1px solid #ddd; /* Borde de las tarjetas */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+  }
+
+  .connection-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .connection-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .connection-card span {
+    color: #333; /* Ajustar según la paleta de colores */
+    font-weight: 500;
+  }
+  
