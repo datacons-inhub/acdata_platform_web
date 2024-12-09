@@ -4,14 +4,16 @@ import { HeaderWrapper, SearchBar, QuickActions, AccountButton, AccountDropdown,
 import logger from '../../../../utils/logger';
 import { syncUser } from '../../../../services/syncService';
 import { useAuth } from '../../../../context/AuthContext';
+import { useTheme } from '../../../../context/ThemeContext';
 
 interface ClientHeaderProps {
-  toggleTheme: () => void;
-  theme: string;
   toggleMenu: () => void;
 }
 
-const ClientHeader: React.FC<ClientHeaderProps> = ({ toggleTheme, theme, toggleMenu }) => {
+//const ClientHeader: React.FC = () => {
+const ClientHeader: React.FC<ClientHeaderProps> = ({ toggleMenu }) => { 
+  const { theme, toggleTheme } = useTheme();
+//const ClientHeader: React.FC<ClientHeaderProps> = ({ toggleTheme, theme, toggleMenu }) => {
   const [isAccountMenuOpen, setAccountMenuOpen] = useState(false);
 
   const toggleAccountMenu = () => {

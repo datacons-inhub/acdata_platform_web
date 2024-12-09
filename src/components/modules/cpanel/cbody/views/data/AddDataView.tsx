@@ -1,7 +1,7 @@
 // AddData.tsx
 import React, { useState, useRef } from 'react';
 import { uploadFiles } from '../../../../../../services/fileService'; 
-import './AddData.css';
+import './AddDataView.css';
 
 interface AddDataProps {
   connectionType: string;

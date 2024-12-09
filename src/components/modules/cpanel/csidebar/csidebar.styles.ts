@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SidebarWrapper = styled.nav.withConfig({
   shouldForwardProp: (prop) => prop !== 'isOpen',
 })<{ isOpen: boolean }>`
-  width: ${({ isOpen }) => (isOpen ? '200px' : '0')};
+  width: ${({ isOpen }) => (isOpen ? '250px' : '0')};
   background-color: ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.text};
   height: 100vh;

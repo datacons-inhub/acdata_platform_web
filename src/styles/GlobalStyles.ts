@@ -1,51 +1,68 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
+
+export const fontFamilies = {
+  body: "'Open Sans', sans-serif",
+  heading: "'Montserrat', sans-serif",
+  footer: "'Roboto', sans-serif",
+  cta: "'Lato', sans-serif",
+};
 
 export const GlobalStyles = createGlobalStyle`
-  body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: ${(props) => props.theme.body};
-    color: ${(props) => props.theme.text};
-    margin: 0;
-    padding: 0;
-  }
+  ${({ theme }) => css`
+    body {
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    color: ${(props) => props.theme.primary};
-  }
+    body.light {
+      font-family: ${fontFamilies.body};
+      background-color: ${theme?.light?.background || '#fff'};
+      color: ${theme?.light?.text || '#000'};
+      margin: 0;
+      padding: 0;
+    }
 
-  p {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
-  }
+    body.dark {
+      font-family: ${fontFamilies.body};
+      background-color: ${theme?.dark?.background || '#000'};
+      color: ${theme?.dark?.text || '#fff'};
+      margin: 0;
+      padding: 0;
+    }
 
-  footer {
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.875rem;
-    color: ${(props) => props.theme.secondary};
-  }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: ${fontFamilies.heading};
+      color: ${({ theme }) => theme?.primary || '#000'};
+    }
 
-  .cta-btn {
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-  }
+    p {
+      line-height: 1.6;
+    }
 
-// Slider Sign Up
-.container {
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
-}
+    footer {
+      font-family: ${fontFamilies.footer};
+      font-size: 0.875rem;
+      color: ${({ theme }) => theme?.secondary || '#444'};
+    }
 
-.left-column {
-  width: 50%;
-  padding: 2rem;
-}
+    .cta-btn {
+      font-family: ${fontFamilies.cta};
+      font-weight: bold;
+    }
 
-.right-column {
-  width: 50%;
-  padding: 2rem;
-}
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+
+    .left-column {
+      width: 50%;
+      padding: 2rem;
+    }
+
+    .right-column {
+      width: 50%;
+      padding: 2rem;
+    }
+  `}
 `;
-
-

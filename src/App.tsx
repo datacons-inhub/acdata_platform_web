@@ -1,24 +1,18 @@
-import { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import { lightTheme as mainLightTheme, darkTheme as mainDarkTheme } from './styles/theme';  // Tema de la página principal
+//Global Styles y localStorage
 import { GlobalStyles } from './styles/GlobalStyles';
 import { AuthProvider } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
+// Interfaces
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Body from './components/Body/Body';
-//import { AuthProvider } from './context/AuthContext';
 import ControlPanel from './components/modules/cpanel/ControlPanel';
 import SignUpModal from './components/modules/account/SignUpModal';
 
-const App = () => {
-  // Estado para el tema de la página principal
-  const [mainTheme, setMainTheme] = useState('light');
 
-  // Función para cambiar el tema de la página principal
-  const toggleMainTheme = () => {
-    setMainTheme(mainTheme === 'light' ? 'dark' : 'light');
-  };
+const App: React.FC = () => {
 
   return (
     <Router>
@@ -27,9 +21,9 @@ const App = () => {
         <Route
           path="/"
           element={
-            <ThemeProvider theme={mainTheme === 'light' ? mainLightTheme : mainDarkTheme}>
+            <ThemeProvider>
               <GlobalStyles />
-              <Header toggleTheme={toggleMainTheme} theme={mainTheme} />
+              <Header />
               <Body />
               <Footer />
             </ThemeProvider>
@@ -40,14 +34,11 @@ const App = () => {
         <Route
           path="/client-cpanel"
           element={
-            <ThemeProvider theme={mainTheme === 'light' ? mainLightTheme : mainDarkTheme}>
+            <ThemeProvider>            
               <GlobalStyles />
               <AuthProvider>
-                <ControlPanel toggleTheme={toggleMainTheme} theme={mainTheme} />
-              </AuthProvider>
-                
-
-              
+                <ControlPanel />
+              </AuthProvider>    
             </ThemeProvider>
           }
         />

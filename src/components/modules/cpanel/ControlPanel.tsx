@@ -15,12 +15,8 @@ import AccountView from './cbody/views/Account';
 import PresentationView from './cbody/views/PresentationView';
 //import logger from '../../../utils/logger';
 
-interface CPanelProps {
-  toggleTheme: () => void;
-  theme: string;
-}
 
-const CPanel: React.FC<CPanelProps> = ({ toggleTheme, theme }) => {
+const CPanel: React.FC= () => {
   //const { user, isAuthenticated, login: authLogin } = useAuth();
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -81,7 +77,8 @@ const CPanel: React.FC<CPanelProps> = ({ toggleTheme, theme }) => {
 
 
       {/* Header Fijo en la Parte Superior */}
-      <CPHeader toggleTheme={toggleTheme} theme={theme} toggleMenu={toggleMenu} />
+      <CPHeader toggleMenu={toggleMenu} />
+
       {/* CPanel con Sidebar */}
       <DashboardWrapper>
         <CPSidebar menuOpen={menuOpen} setSelectedMenu={setSelectedMenu} />
