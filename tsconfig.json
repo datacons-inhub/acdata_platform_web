@@ -1,24 +1,7 @@
 {
   "files": [],
-  "compilerOptions": {
-    "esModuleInterop": true,
-  //  "allowSyntheticDefaultImports": true,
-//    "target": "esnext",
-//    "module": "esnext",
-//    "jsx": "react-jsx",
-    "strict": true,
-//    "skipLibCheck": true,
-//    "moduleResolution": "node",
-//    "baseUrl": "./src",
- //   "paths": {
- //     "@assets/*": ["assets/*"],
-//      "@components/*": ["components/*"]
-//    },
-  },
-//  "include": ["src/**/*"],
-//  "exclude": ["node_modules"],
   "references": [
-    {"path": "./tsconfig.app.json"  },
-    {"path": "./tsconfig.node.json" }
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
   ]
 }

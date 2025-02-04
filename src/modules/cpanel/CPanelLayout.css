@@ -1,0 +1,13 @@
+.cpanel-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+.cpanel-body {
+  display: flex;
+  flex: 1;
+  position: relative;
+}

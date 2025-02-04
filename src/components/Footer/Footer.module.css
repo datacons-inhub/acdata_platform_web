@@ -1,0 +1,28 @@
+/* src/components/Footer/Footer.module.css */
+.footer {
+    background-color: var(--color-bg-alt);
+    padding: 10px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--color-secondary);
+  }
+  
+  .link {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--color-secondary);
+    text-decoration: none;
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
+  

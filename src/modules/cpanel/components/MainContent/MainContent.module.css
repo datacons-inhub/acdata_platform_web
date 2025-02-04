@@ -1,0 +1,26 @@
+.main {
+    flex: 1;
+    transition: margin-right 0.3s;
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: var(--color-text);
+    background: var(--color-bg);
+  }
+  
+  /* Si el sidebar está abierto */
+  .sidebarOpen {
+    margin-right: 200px; /* coincidir con el ancho del sidebar abierto */
+  }
+  
+  /* Si el sidebar está cerrado */
+  .sidebarClosed {
+    margin-right: 60px; /* ancho del sidebar cerrado */
+  }
+  
+  @media (max-width: 768px) {
+    /* En móvil se puede ajustar el comportamiento, por ejemplo:
+       si se desea que el sidebar se superponga en lugar de modificar
+       el tamaño del maincontent, se podría ajustar esta lógica. */
+  }
+  

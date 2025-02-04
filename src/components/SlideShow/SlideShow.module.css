@@ -1,0 +1,15 @@
+/* src/components/SlideShow/SlideShow.module.css */
+.slideShow {
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+  }
+  
+  .image {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+  }
+  

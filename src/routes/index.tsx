@@ -1,15 +1,16 @@
+// src/routes/index.tsx
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from '../pages'; // Asumiendo que HomePage esta en pages/index.tsx
+import CPanelLayout from '../pages/cpanel';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from '../components/Body/Body'; // Actualiza según corresponda
-
-const AppRoutes = () => {
+const AppRoutes: React.FC = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* Otras rutas */}
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/cpanel" element={<CPanelLayout />} />
+      {/* Agregar más rutas si es necesario */}
+    </Routes>
   );
 };
 

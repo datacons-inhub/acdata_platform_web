@@ -1,47 +1,40 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import logo from '@assets/logos/logo.png'; 
-import { HeaderWrapper, NavMenu, LogoText, LogoWrapper, ButtonGroup } from './Header.styles';
-import { FaSun, FaMoon } from 'react-icons/fa';
-import { useTheme } from '../../context/ThemeContext';
-/*
-interface HeaderProps {
-  toggleTheme: () => void;  // Definir el tipo para toggleTheme
-  theme: string;  // Definir el tipo para theme
-}*/
+// src/components/Header/Header.tsx
+import React, { useContext, useState } from 'react';
+import styles from './Header.module.css';
+import { ThemeContext } from '../../state/ThemeContext';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import { Link } from 'react-router-dom';
 
-//const Header: React.FC<HeaderProps> = ({ toggleTheme, theme }) => {  // Definir el tipo del componente
-  const Header: React.FC = () => { 
-    const { theme, toggleTheme } = useTheme();    
-    const navigate = useNavigate(); // Definimos useNavigate para redirigir
+const Header: React.FC = () => {
+  const { theme } = useContext(ThemeContext);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    const handleCPanel = () => {
-      navigate('/client-cpanel');
-    };
-    const handleLogin = () => {
-      navigate('/signup');
-    };
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <HeaderWrapper>
-      <LogoWrapper>
-        <img src={logo} alt="Inhub Logo" />
-        <LogoText>InHub</LogoText>
-      </LogoWrapper>
-      <NavMenu>
-        <Link to="/" >Inicio</Link>
-        <Link to="/use_case">Casos</Link>
-        <Link to="/about_us">Nosotros</Link>
-      </NavMenu>
-      <ButtonGroup>
-        <button className="cta-btn" onClick={handleCPanel} >Demo</button>
-        <button className="cta-btn secondary" onClick={handleLogin} >Login free</button>
-
-        <button onClick={toggleTheme}>
-          {theme === 'light' ? <FaMoon size={20} /> : <FaSun size={20} />}
-        </button>
-      </ButtonGroup>
-      </HeaderWrapper>
+    <header className={styles.header}>
+      <div className={styles.logoSection}>
+        <img src="/src/assets/logo.png" alt="acdata logo" className={styles.logo}/>
+        <span className={styles.title}>acdata</span>
+      </div>
+      
+      <button className={styles.menuBtn} onClick={toggleMenu} aria-label="Toggle menu">
+        <span className={styles.hamburger}></span>
+        <span className={styles.hamburger}></span>
+        <span className={styles.hamburger}></span>
+      </button>
+      
+      <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
+        <a href="#nosotros" className={styles.link}>Nosotros</a>
+        <a href="#proyectos" className={styles.link}>Proyectos</a>
+        {/* Reemplazamos href="#demo" por Link a /cpanel */}
+        <Link to="/cpanel" className={`${styles.link} ${styles.linkCta}`}>Demo</Link>
+        <a href="#login" className={styles.link}>Login</a>
+        <a href="#registro" className={`${styles.link} ${styles.linkCta}`}>Registro</a>
+      </nav>
+      
+      <ThemeToggle />
+    </header>
   );
 };
 

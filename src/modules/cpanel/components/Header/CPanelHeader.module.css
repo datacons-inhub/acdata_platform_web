@@ -1,0 +1,82 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-alt);
+  padding: 10px 20px;
+  gap: 15px;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-primary);
+  flex: 1;
+}
+
+.searchContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 8px;
+  width: 20px;
+  height: 20px;
+  color: var(--color-text);
+}
+
+.searchInput {
+  padding: 8px 8px 8px 30px;
+  border: 1px solid var(--color-text);
+  border-radius: 4px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-primary);
+}
+
+.accountMenuContainer {
+  position: relative;
+}
+
+.accountMenu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-text);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.accountMenuItem {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  color: var(--color-text);
+  padding: 5px 10px;
+  width: 100%;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .title {
+    display: none; /* Opcional, si se quiere ocultar título en móvil */
+  }
+}

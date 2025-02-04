@@ -1,0 +1,96 @@
+.formContainer {
+    padding: 20px;
+  }
+  
+  .backBtn {
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+  }
+  
+  .backIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  .title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+  }
+  
+  .uploadSection {
+    background: var(--color-bg-alt);
+    border: 1px dashed var(--color-text);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .dropArea {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--color-text);
+    margin-bottom: 20px;
+  }
+  
+  .dropText {
+    font-size: 14px;
+    color: var(--color-text);
+    margin-bottom: 10px;
+  }
+  
+  .uploadBtn {
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .uploadingList {
+    /* Lista de archivos subiendo */
+  }
+  
+  .fileItem {
+    margin-bottom: 15px;
+  }
+  
+  .fileName {
+    font-size: 14px;
+    color: var(--color-text);
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .progressContainer {
+    background: var(--color-bg);
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
+    position: relative;
+    height: 20px;
+  }
+  
+  .progressBar {
+    background: var(--color-accent);
+    height: 100%;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .progressText {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    font-size: 12px;
+    color: #fff;
+  }
+  

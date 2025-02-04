@@ -1,40 +1,15 @@
-//import React from 'react';
-import { FooterWrapper, FooterTop, FooterLinks, SocialMedia, Copyright, SocialIcon } from './Footer.styles';
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+// src/components/Footer/Footer.tsx
+import React from 'react';
+import styles from './Footer.module.css';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
-    <FooterWrapper>
-      {/* Parte superior del footer */}
-      <FooterTop>
-        <p>Conectando tu PyME con IA avanzada</p>
-      </FooterTop>
-
-      {/* Redes sociales */}
-      <SocialMedia>
-        <SocialIcon href="https://facebook.com" target="_blank">
-          <FaFacebookF />
-        </SocialIcon>
-        <SocialIcon href="https://linkedin.com" target="_blank">
-          <FaLinkedinIn />
-        </SocialIcon>
-        <SocialIcon href="https://twitter.com" target="_blank">
-          <FaTwitter />
-        </SocialIcon>
-      </SocialMedia>
-
-      {/* Enlaces de la plataforma */}
-      <FooterLinks>
-        <a href="/terms">Términos y Condiciones</a>
-        <a href="/privacy">Política de Privacidad</a>
-        <a href="/support">Soporte</a>
-      </FooterLinks>
-
-      {/* Derechos de autor */}
-      <Copyright>
-        <p>&copy; {new Date().getFullYear()} InHub. Todos los derechos reservados.</p>
-      </Copyright>
-    </FooterWrapper>
+    <footer className={styles.footer}>
+      <span className={styles.text}>Síguenos: </span>
+      <a href="https://twitter.com" target="_blank" rel="noreferrer" className={styles.link}>Twitter</a>
+      <a href="https://facebook.com" target="_blank" rel="noreferrer" className={styles.link}>Facebook</a>
+      <a href="https://linkedin.com" target="_blank" rel="noreferrer" className={styles.link}>LinkedIn</a>
+    </footer>
   );
 };
 
